@@ -125,7 +125,7 @@ router.delete('/:id', h.handle(async function (req, res) {
 
     var taskId = String(task._id);
     await User.updateMany({ pendingTasks: taskId }, { $pull: { pendingTasks: taskId } });
-    h.send(res, 200, 'Task deleted', task);
+    res.status(204).end();
 }));
 
 module.exports = router;

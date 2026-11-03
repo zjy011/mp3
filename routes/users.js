@@ -128,7 +128,7 @@ router.delete('/:id', h.handle(async function (req, res) {
         { assignedUser: String(user._id) },
         { $set: { assignedUser: '', assignedUserName: 'unassigned' } }
     );
-    h.send(res, 200, 'User deleted', user);
+    res.status(204).end();
 }));
 
 module.exports = router;
